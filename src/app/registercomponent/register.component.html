@@ -1,0 +1,27 @@
+<form [formGroup]="form" (ngSubmit)="addUser()">
+  <div class="form-group">
+   <label for="exampleInputusername">username</label>
+    <input type="text" class="form-control" id="usernameRegister"  name="username" formControlName="username">
+   <div *ngIf="!form.controls['username'].valid && form.controls['username'].touched" class="alert alert-danger">username taken </div>
+   <div *ngIf="form.get('username').hasError('usernametaken')">Username taken</div>
+
+  </div>
+  <div class="form-group">
+    <label for="inputPassword1"> Password</label>
+    <input type="password" class="form-control" id="password" name="password"formControlName="password">
+  </div>
+<div *ngIf="!form.controls['password'].valid && form.controls['password'].touched" class="alert alert-danger"> </div>
+  <div class="form-group">
+    <label for="inputPassword2"> Confirm Password</label>
+    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" formControlName="passwordConfirmation">
+  </div>
+  <div *ngIf="!form.controls['passwordConfirmation'].valid && form.controls['passwordConfirmation'].touched" class="alert alert-danger"> </div>
+
+  <button type="submit" class="btn btn-default"[disabled]="!form.valid">Create user</button>
+</form>
+
+<p>{{payLoad}} </p>
+<p>{{username}} </p>
+<p>{{password}} </p>
+<p>{{passwordConfirmation}} </p>
+

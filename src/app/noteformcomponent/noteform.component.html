@@ -1,0 +1,24 @@
+
+<form #form="ngForm">
+  <div class="form-group">
+   <label  class="input-group" for="title">Note title</label>
+    <input type="text" class="form-control" id="title" #title="ngModel" placeholder="title" name="title" [(ngModel)]="note.title" required>
+  </div>
+  <span class="help-block alert-alert-danger"  *ngIf="title.errors && title.touched"> title required</span>
+
+  <div class="form-group">
+    <textarea class="form-control" rows="3"  #text="ngModel" name="text" [(ngModel)]="note.text" required > </textarea>
+    <span class="help-block alert-alert-danger"  *ngIf="text.invalid && text.touched">text required</span>
+</div>
+  <button *ngIf="!isedit"  [disabled]="!form.valid" type="submit" class="btn btn-default"(click)="postNote(note)">Add</button>
+  <button *ngIf="isedit"  [disabled]="!form.valid" type="submit" class="btn btn-default"(click)="saveEdit(note, note.id)">Save</button>
+  <button  type="submit" class="btn btn-default"(click)="clear(note)">Clear</button>
+  </form>
+
+<p> {{errorMessage}}</p>
+
+
+
+
+
+

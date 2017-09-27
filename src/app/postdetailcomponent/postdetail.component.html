@@ -1,0 +1,14 @@
+<!--<app-noteboxcomponent [listId]="listId" [editId]="editId" [noteArray]="noteArray" [note]="note"> </app-noteboxcomponent> -->
+
+<div class="panel panel-default" >
+   <div class="panel-heading" *ngFor="let note of noteArray">
+     <p>{{note.title}} </p>
+
+   <div class="panel-footer">
+    <button class="btn btn-info" (click)="editNote(note.id)"><span class="glyphicon glyphicon-edit"> </span></button>
+    <button class="btn btn-info" (click)="delete(note.id)"><span class="glyphicon glyphicon-remove"> </span></button>
+
+   </div>
+   </div>
+</div>
+
